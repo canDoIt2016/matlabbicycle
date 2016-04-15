@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--IP Schemes - by IPSwitcher-->
+<document>
+    <Scheme Name="温度" default="26" min="0" max="35"/>
+    <Scheme Name="空气质量指数" default="100" min="20" max="120"/>
+    <Scheme Name="风力等级" default="2" min="0" max="9"/>
+    <Scheme Name="降水量" default="0" min="0" max="300"/>
+    <Scheme Name="出行时段" default="平峰期" min="0" max="300"/>
+    <Scheme Name="出行次数" default="2.85" min="0" max="0"/>
+    <Scheme Name="性别比例" default="50%" min="0" max="0"/>
+    <Scheme Name="交通拥堵情况" default="不拥堵" min="0" max="0"/>
+    <Scheme Name="道路条件" default="优" min="0" max="0"/>
+    <Scheme Name="自行车周转率" default="5" min="1" max="10"/>
+    <Scheme Name="车辆运营成本" default="382" min="0" max="0"/>
+    <Scheme Name="运营成本增长率" default="6%" min="5%" max="8%"/>
+    <Scheme Name="车辆损坏率" default="0.7%" min="0" max="0"/>
+    <Scheme Name="车辆维修费用" default="0.5" min="0" max="0"/>
+</document>
