@@ -202,6 +202,7 @@ function pushbutton1_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+global Upper_Limit_Custom Lower_Limit_Custom User_Upper_Limit_Custom User_Lower_Limit_Custom Maximum_Return_Custom Maximum_Ticket_Price_Custom Maximum_Ticket_Price_User_Custom Costing_Custom;
 if isempty(get(handles.edit1,'String'))
    errordlg('未输入预计成本！','警告') ;    
 else
@@ -245,4 +246,12 @@ else
         set(handles.text7,'String',Q5);
         errordlg('输入所得全为负收益','警告') ;
     end
+    Costing_Custom=inputcost;
+    Upper_Limit_Custom=balance2sring1;
+    Lower_Limit_Custom=balance2sring2;
+    User_Upper_Limit_Custom=Q3;
+    User_Lower_Limit_Custom=Q4;
+    Maximum_Return_Custom=PRMax3;
+    Maximum_Ticket_Price_Custom=pMax3;
+    Maximum_Ticket_Price_User_Custom=Q5;
 end

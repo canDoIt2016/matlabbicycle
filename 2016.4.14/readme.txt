@@ -15,7 +15,7 @@ MATLAB Compiler
 
   (2) run the MATLAB runtime installer.
 
-Or download the Windows 32-bit version of the MATLAB runtime for R2015a 
+Or download the Windows 64-bit version of the MATLAB runtime for R2015a 
 from the MathWorks Web site by navigating to
 
    http://www.mathworks.com/products/compiler/mcr/index.html
@@ -33,7 +33,7 @@ NOTE: You will need administrator rights to run MCRInstaller.
 
 Files to package for Standalone 
 ================================
--priceMaxWin.exe
+-TicketPrice.exe
 -MCRInstaller.exe 
    -if end users are unable to download the MATLAB runtime using the above  
     link, include it when building your component by clicking 

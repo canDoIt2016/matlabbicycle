@@ -694,10 +694,10 @@ else
     end   
     allSchemeListItems = xDoc.getElementsByTagName('Scheme');% 获取Items节点集合
     Scheme0 = allSchemeListItems.item(0);
-    Scheme10 = allSchemeListItems.item(10);
+    Scheme11 = allSchemeListItems.item(11);
     Scheme5 = allSchemeListItems.item(5);
     xmlT = char(Scheme0.getAttribute('default'));
-    xmlCostIncrease = char(Scheme10.getAttribute('default'));
+    xmlCostIncrease = char(Scheme11.getAttribute('default'));
     xmlTravelTimes = char(Scheme5.getAttribute('default'));
     bicParameter.QP = str2double(get(handles.edit5,'String'));
     bicParameter.T = str2double(xmlT);
@@ -734,16 +734,16 @@ else
     end   
     allSchemeListItems = xDoc.getElementsByTagName('Scheme');% 获取Items节点集合
     Scheme0 = allSchemeListItems.item(0);
-    Scheme10 = allSchemeListItems.item(10);
     Scheme11 = allSchemeListItems.item(11);
     Scheme12 = allSchemeListItems.item(12);
-    Scheme9 = allSchemeListItems.item(9);
+    Scheme13 = allSchemeListItems.item(13);
+    Scheme10 = allSchemeListItems.item(10);
     Scheme5 = allSchemeListItems.item(5);
     xmlT = char(Scheme0.getAttribute('default'));
-    xmlCostIncrease = char(Scheme10.getAttribute('default'));
-    xmlBreakratio = char(Scheme11.getAttribute('default'));
-    xmlRepairCost = char(Scheme12.getAttribute('default'));
-    xmlOperatCost = char(Scheme9.getAttribute('default'));
+    xmlCostIncrease = char(Scheme11.getAttribute('default'));
+    xmlBreakratio = char(Scheme12.getAttribute('default'));
+    xmlRepairCost = char(Scheme13.getAttribute('default'));
+    xmlOperatCost = char(Scheme10.getAttribute('default'));
     xmlTravelTimes = char(Scheme5.getAttribute('default'));
     bicParameter.QP = str2double(get(handles.edit5,'String'));
     bicParameter.T = str2double(xmlT);
@@ -819,16 +819,16 @@ else
     end   
     allSchemeListItems = xDoc.getElementsByTagName('Scheme');% 获取Items节点集合
     Scheme0 = allSchemeListItems.item(0);
-    Scheme10 = allSchemeListItems.item(10);
     Scheme11 = allSchemeListItems.item(11);
     Scheme12 = allSchemeListItems.item(12);
-    Scheme9 = allSchemeListItems.item(9);
+    Scheme13 = allSchemeListItems.item(13);
+    Scheme10 = allSchemeListItems.item(10);
     Scheme5 = allSchemeListItems.item(5);
     xmlT = char(Scheme0.getAttribute('default'));
-    xmlCostIncrease = char(Scheme10.getAttribute('default'));
-    xmlBreakratio = char(Scheme11.getAttribute('default'));
-    xmlRepairCost = char(Scheme12.getAttribute('default'));
-    xmlOperatCost = char(Scheme9.getAttribute('default'));
+    xmlCostIncrease = char(Scheme11.getAttribute('default'));
+    xmlBreakratio = char(Scheme12.getAttribute('default'));
+    xmlRepairCost = char(Scheme13.getAttribute('default'));
+    xmlOperatCost = char(Scheme10.getAttribute('default'));
     xmlTravelTimes = char(Scheme5.getAttribute('default'));
     QP = str2double(get(handles.edit5,'String'));
     T = str2double(xmlT);
@@ -878,16 +878,16 @@ else
     end   
     allSchemeListItems = xDoc.getElementsByTagName('Scheme');% 获取Items节点集合
     Scheme0 = allSchemeListItems.item(0);
-    Scheme10 = allSchemeListItems.item(10);
     Scheme11 = allSchemeListItems.item(11);
     Scheme12 = allSchemeListItems.item(12);
-    Scheme9 = allSchemeListItems.item(9);
+    Scheme13 = allSchemeListItems.item(13);
+    Scheme10 = allSchemeListItems.item(10);
     Scheme5 = allSchemeListItems.item(5);
     xmlT = char(Scheme0.getAttribute('default'));
-    xmlCostIncrease = char(Scheme10.getAttribute('default'));
-    xmlBreakratio = char(Scheme11.getAttribute('default'));
-    xmlRepairCost = char(Scheme12.getAttribute('default'));
-    xmlOperatCost = char(Scheme9.getAttribute('default'));
+    xmlCostIncrease = char(Scheme11.getAttribute('default'));
+    xmlBreakratio = char(Scheme12.getAttribute('default'));
+    xmlRepairCost = char(Scheme13.getAttribute('default'));
+    xmlOperatCost = char(Scheme10.getAttribute('default'));
     xmlTravelTimes = char(Scheme5.getAttribute('default'));
     bicParameter.QP = str2double(get(handles.edit5,'String'));
     bicParameter.T = str2double(xmlT);
@@ -966,12 +966,12 @@ else
     end   
     allSchemeListItems = xDoc.getElementsByTagName('Scheme');% 获取Items节点集合
     Scheme0 = allSchemeListItems.item(0);
+    Scheme11 = allSchemeListItems.item(11);
     Scheme10 = allSchemeListItems.item(10);
-    Scheme9 = allSchemeListItems.item(9);
     Scheme5 = allSchemeListItems.item(5);
     xmlT = char(Scheme0.getAttribute('default'));
-    xmlCostIncrease = char(Scheme10.getAttribute('default'));
-    xmlOperatCost = char(Scheme9.getAttribute('default'));
+    xmlCostIncrease = char(Scheme11.getAttribute('default'));
+    xmlOperatCost = char(Scheme10.getAttribute('default'));
     xmlTravelTimes = char(Scheme5.getAttribute('default'));
     bicParameter.QP = str2double(get(handles.edit5,'String'));
     bicParameter.T = str2double(xmlT);
@@ -1053,10 +1053,10 @@ else
     end   
     allSchemeListItems = xDoc.getElementsByTagName('Scheme');% 获取Items节点集合
     Scheme0 = allSchemeListItems.item(0);
-    Scheme10 = allSchemeListItems.item(10);
+    Scheme11 = allSchemeListItems.item(11);
     Scheme5 = allSchemeListItems.item(5);
     xmlT = char(Scheme0.getAttribute('default'));
-    xmlCostIncrease = char(Scheme10.getAttribute('default'));
+    xmlCostIncrease = char(Scheme11.getAttribute('default'));
     xmlTravelTimes = char(Scheme5.getAttribute('default'));
     bicParameter.QP = str2double(get(handles.edit5,'String'));
     bicParameter.T = str2double(xmlT);
@@ -1239,10 +1239,10 @@ bicParameter.Y = year(datestr(now,26));
 xDoc = xmlread('.\config.xml');
 allSchemeListItems = xDoc.getElementsByTagName('Scheme');% 获取Items节点集合
 Scheme0 = allSchemeListItems.item(0);
-Scheme10 = allSchemeListItems.item(10);
-Scheme11 = allSchemeListItems.item(11);
-Scheme12 = allSchemeListItems.item(12);
-Scheme9 = allSchemeListItems.item(9);
+Scheme10 = allSchemeListItems.item(11);
+Scheme11 = allSchemeListItems.item(12);
+Scheme12 = allSchemeListItems.item(13);
+Scheme9 = allSchemeListItems.item(10);
 Scheme5 = allSchemeListItems.item(5);
 xmlT = char(Scheme0.getAttribute('default'));
 xmlCostIncrease = char(Scheme10.getAttribute('default'));
@@ -1265,9 +1265,9 @@ genderRatio = (char(allSchemeListItems.item(6).getAttribute('default')));
 TrafficJam = (char(allSchemeListItems.item(7).getAttribute('default')));
 roadCondition = (char(allSchemeListItems.item(8).getAttribute('default')));
 % bicycleTurnover = (char(allSchemeListItems.item(9).getAttribute('default')));
-%try
-M1=[{'区域人口数'},{'平均年龄'},{'区域平均收入'},{'广告收入'},{'政府补贴额度'},{'公共自行车投放量'},{'计算年份'},{'运营成本增长率'},{'车辆损坏率'},{'车辆维修费用'},{'运营成本'},{'出行次数'},{'温度'},{'空气质量指数'},{'风力等级'},{'降水量'},{'性别比例'},{'交通拥堵情况'},{'道路条件'}];
-N1=[bicParameter.QP,bicParameter.A,bicParameter.I,bicParameter.AQ,bicParameter.S,bicParameter.qin,bicParameter.Y,bicParameter.costIncrease,bicParameter.breakratio,bicParameter.repairCost,bicParameter.operatCost,bicParameter.travelTimes,bicParameter.T,{airQuality},{windScale},{precipitation},{genderRatio},{TrafficJam},{roadCondition}];
+try
+M1=[{'区域人口数'},{'平均年龄'},{'区域平均收入'},{'广告收入'},{'政府补贴额度'},{'公共自行车投放量'},{'计算年份'},{'运营成本增长率'},{'车辆损坏率'},{'车辆维修费用'},{'运营成本'},{'出行次数'},{'温度'},{'空气质量指数'},{'风力等级'},{'降水量'},{'性别比例'},{'交通拥堵情况'},{'道路条件'},{'自行车周转率'}];
+N1=[bicParameter.QP,bicParameter.A,bicParameter.I,bicParameter.AQ,bicParameter.S,bicParameter.qin,bicParameter.Y,bicParameter.costIncrease,bicParameter.breakratio,bicParameter.repairCost,bicParameter.operatCost,bicParameter.travelTimes,bicParameter.T,{airQuality},{windScale},{precipitation},{genderRatio},{TrafficJam},{roadCondition},{bicycleTurnover}];
 P1=[{'人'},{'岁'},{'千元/月'},{'万月/年'},{'万月/年'},{'辆'},{''},{''},{''},{'元/次/辆'},{'元/年'},{'次/日/人'},{'度'},{''},{''},{'mm'},{''},{''},{''},{'次/日'}];
 %N2=[bicParameter.costIncrease,bicParameter.breakratio,bicParameter.repairCost,bicParameter.operatCost,bicParameter.travelTimes,bicParameter.T];
 %M3=[{'空气质量指数'},{'风力等级'},{'降水量'},{'性别比例'},{'交通拥堵情况'},{'道路条件'},{'自行车周转率'}];
@@ -1282,7 +1282,7 @@ P3=[{'元/次'},{'元/次'},{'人次/天'},{'人次/天'},{'元/天'},{'元/次'},{'人次/天'},
 % N6=[{Costing_Custom},{Upper_Limit_Custom},{Lower_Limit_Custom},{User_Upper_Limit_Custom},{User_Lower_Limit_Custom},{Maximum_Return_Custom},{Maximum_Ticket_Price_Custom},{Maximum_Ticket_Price_User_Custom}];
 [fileName ,putFile]=uiputfile('*.xlsx','报表存储位置');
 namePath=strcat(putFile,fileName);
-if(isempty(namePath))
+if(namePath=='')
     errordlg('请输入报表名','错误') ; 
 else
     %别忘了在文档中注明这个写法的错误
@@ -1320,11 +1320,11 @@ else
     set(ActivesheetRange, 'Value', '结果数值');
     ActivesheetRange = get(Sheet1,'Range','K3');
     set(ActivesheetRange, 'Value', '结果单位');
-    ActivesheetRange = get(Sheet1,'Range','A4:A22');
+    ActivesheetRange = get(Sheet1,'Range','A4:A23');
     set(ActivesheetRange, 'Value', M1');
-    ActivesheetRange = get(Sheet1,'Range','B4:B22');
+    ActivesheetRange = get(Sheet1,'Range','B4:B23');
     set(ActivesheetRange, 'Value', N1');
-    ActivesheetRange = get(Sheet1,'Range','C4:C22');
+    ActivesheetRange = get(Sheet1,'Range','C4:C23');
     set(ActivesheetRange, 'Value', P1');
     ActivesheetRange = get(Sheet1,'Range','E4:E10');
     set(ActivesheetRange, 'Value', M2');
@@ -1343,9 +1343,9 @@ else
     % delete(Excel);
     msgbox('报表生成成功！','');
 end
-% catch
-%     errordlg('报表生成失败','错误') ; 
-% end
+catch
+    errordlg('报表生成失败','错误') ; 
+end
 
 
 % --------------------------------------------------------------------

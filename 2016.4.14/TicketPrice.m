@@ -161,11 +161,13 @@ function pushbutton1_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+global Visitor_Volume Daily_Earnings Ticket_Price;
 if isempty(get(handles.edit1,'String'))
    errordlg('未输入平均票价！','警告') ;    
 else
    %读取文本框的内容并将其转换成数字形式
    ticketPrice = str2double(get(handles.edit1,'String'));
+   Ticket_Price=get(handles.edit1,'String');
    bicParameter = getappdata(0,'bicParameter');
    %paymentsBalance计算企业的日收益
    [pMax1,PRMax1] = paymentsMax(bicParameter.QP,bicParameter.T,bicParameter.A,bicParameter.I,bicParameter.AQ,bicParameter.S,bicParameter.qin,bicParameter.Y,ticketPrice,bicParameter.costIncrease,bicParameter.breakratio,bicParameter.repairCost,bicParameter.operatCost,bicParameter.travelTimes);
@@ -173,6 +175,8 @@ else
    %priceMax计算用户量
    Q = priceMax(bicParameter.QP,bicParameter.T,bicParameter.A,bicParameter.I,ticketPrice,bicParameter.travelTimes);
    Q = num2str(Q);
+   Visitor_Volume=Q;
+   Daily_Earnings=PRMax1;
    close(gcf);
    %pricing界面输出
    forecast;

@@ -1,18 +1,114 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!--IP Schemes - by IPSwitcher-->
+<?xml version="1.0" encoding="utf-8"?><!--IP Schemes - by IPSwitcher-->
 <document>
-    <Scheme Name="温度" default="26" min="0" max="35"/>
-    <Scheme Name="空气质量指数" default="优"/>
-    <Scheme Name="风力等级" default="微风"/>
-    <Scheme Name="降水量" default="无雨"/>
-    <Scheme Name="出行时段" default="平峰期" min="0" max="300"/>
-    <Scheme Name="出行次数" default="2.85" min="0" max="0"/>
-    <Scheme Name="性别比例" default="50%" min="0" max="0"/>
-    <Scheme Name="交通拥堵情况" default="不拥堵" min="0" max="0"/>
-    <Scheme Name="道路条件" default="优" min="0" max="0"/>
-    <Scheme Name="自行车周转率" default="5" min="1" max="10"/>
-    <Scheme Name="车辆运营成本" default="382" min="0" max="0"/>
-    <Scheme Name="运营成本增长率" default="0.06" min="5%" max="8%"/>
-    <Scheme Name="车辆损坏率" default="0.007" min="0" max="0"/>
-    <Scheme Name="车辆维修费用" default="0.5" min="0" max="0"/>
+    
+   
+   
+   
+   
+   
+   
+   <Scheme Name="温度" default="26" max="35" min="0"/>
+    
+   
+   
+   
+   
+   
+   
+   <Scheme Name="空气质量指数" default="优"/>
+    
+   
+   
+   
+   
+   
+   
+   <Scheme Name="风力等级" default="微风"/>
+    
+   
+   
+   
+   
+   
+   
+   <Scheme Name="降水量" default="无雨"/>
+    
+   
+   
+   
+   
+   
+   
+   <Scheme Name="出行时段" default="平峰期" max="300" min="0"/>
+    
+   
+   
+   
+   
+   
+   
+   <Scheme Name="出行次数" default="2.85" max="0" min="0"/>
+    
+   
+   
+   
+   
+   
+   
+   <Scheme Name="性别比例" default="0.5" max="0" min="0"/>
+    
+   
+   
+   
+   
+   
+   
+   <Scheme Name="交通拥堵情况" default="不拥堵" max="0" min="0"/>
+    
+   
+   
+   
+   
+   
+   
+   <Scheme Name="道路条件" default="优" max="0" min="0"/>
+    
+   
+   
+   
+   
+   
+   
+   <Scheme Name="车辆运营成本" default="382" max="0" min="0"/>
+    
+   
+   
+   
+   
+   
+   
+   <Scheme Name="运营成本增长率" default="0.06" max="8%" min="5%"/>
+    
+   
+   
+   
+   
+   
+   
+   <Scheme Name="车辆损坏率" default="0.007" max="0" min="0"/>
+    
+   
+   
+   
+   
+   
+   
+   <Scheme Name="车辆维修费用" default="0.5" max="0" min="0"/>
+
+
+
+
+
+
+
 </document>

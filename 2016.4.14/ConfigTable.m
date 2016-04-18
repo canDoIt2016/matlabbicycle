@@ -22,7 +22,7 @@ function varargout = ConfigTable(varargin)
 
 % Edit the above text to modify the response to help ConfigTable
 
-% Last Modified by GUIDE v2.5 21-Jan-2016 14:01:46
+% Last Modified by GUIDE v2.5 18-Apr-2016 21:26:08
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -85,15 +85,15 @@ set(handles.edit14,'String',selectedTargets(6).default);
 set(handles.edit15,'String',selectedTargets(7).default);
 set(handles.edit16,'String',selectedTargets(8).default);
 set(handles.edit17,'String',selectedTargets(9).default);
-set(handles.edit18,'String',selectedTargets(10).default);
-set(handles.edit19,'String',selectedTargets(10).min);
-set(handles.edit20,'String',selectedTargets(10).max);
-set(handles.edit21,'String',selectedTargets(11).default);
-set(handles.edit22,'String',selectedTargets(12).default);
-set(handles.edit23,'String',selectedTargets(12).min);
-set(handles.edit24,'String',selectedTargets(12).max);
-set(handles.edit25,'String',selectedTargets(13).default);
-set(handles.edit26,'String',selectedTargets(14).default);
+% set(handles.edit18,'String',selectedTargets(10).default);
+% set(handles.edit19,'String',selectedTargets(10).min);
+% set(handles.edit20,'String',selectedTargets(10).max);
+set(handles.edit21,'String',selectedTargets(10).default);
+set(handles.edit22,'String',selectedTargets(11).default);
+set(handles.edit23,'String',selectedTargets(11).min);
+set(handles.edit24,'String',selectedTargets(11).max);
+set(handles.edit25,'String',selectedTargets(12).default);
+set(handles.edit26,'String',selectedTargets(13).default);
 
 % --- Outputs from this function are returned to the command line.
 function varargout = ConfigTable_OutputFcn(hObject, eventdata, handles) 
@@ -1107,7 +1107,30 @@ function pushbutton2_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton2 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-close(gcf);
+selectedTargets{1}=get(handles.edit1,'String');
+selectedTargets{2}=get(handles.edit4,'String');
+selectedTargets{3}=get(handles.edit7,'String');
+selectedTargets{4}=get(handles.edit10,'String');
+selectedTargets{5}=get(handles.edit13,'String');
+selectedTargets{6}=get(handles.edit14,'String');
+selectedTargets{7}=get(handles.edit15,'String');
+selectedTargets{8}=get(handles.edit16,'String');
+selectedTargets{9}=get(handles.edit17,'String');
+selectedTargets{10}=get(handles.edit21,'String');
+selectedTargets{11}=get(handles.edit22,'String');
+selectedTargets{12}=get(handles.edit25,'String');
+selectedTargets{13}=get(handles.edit26,'String');
+try   
+  xDoc = xmlread('.\config.xml');   
+catch   
+    errordlg('无法打开配置文件','警告') ;    
+end   
+allSchemeListItems = xDoc.getElementsByTagName('Scheme');% 获取Items节点集合
+for i = 0 : allSchemeListItems.getLength-1   
+    Scheme= allSchemeListItems.item(i);  
+    Scheme.setAttribute('default',selectedTargets{i+1});%修改Slide1的Time属性;
+end
+xmlwrite('.\config.xml',xDoc);%保存结果到example_output.xml
 
 % --- Executes on button press in pushbutton3.
 function pushbutton3_Callback(hObject, eventdata, handles)
@@ -1137,12 +1160,17 @@ set(handles.edit14,'String',selectedTargets(6).default);
 set(handles.edit15,'String',selectedTargets(7).default);
 set(handles.edit16,'String',selectedTargets(8).default);
 set(handles.edit17,'String',selectedTargets(9).default);
-set(handles.edit18,'String',selectedTargets(10).default);
-set(handles.edit19,'String',selectedTargets(10).min);
-set(handles.edit20,'String',selectedTargets(10).max);
-set(handles.edit21,'String',selectedTargets(11).default);
-set(handles.edit22,'String',selectedTargets(12).default);
-set(handles.edit23,'String',selectedTargets(12).min);
-set(handles.edit24,'String',selectedTargets(12).max);
-set(handles.edit25,'String',selectedTargets(13).default);
-set(handles.edit26,'String',selectedTargets(14).default);
+set(handles.edit21,'String',selectedTargets(10).default);
+set(handles.edit22,'String',selectedTargets(11).default);
+set(handles.edit23,'String',selectedTargets(11).min);
+set(handles.edit24,'String',selectedTargets(11).max);
+set(handles.edit25,'String',selectedTargets(12).default);
+set(handles.edit26,'String',selectedTargets(13).default);
+
+
+% --- Executes on button press in pushbutton4.
+function pushbutton4_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton4 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+close(figure(gcf));
