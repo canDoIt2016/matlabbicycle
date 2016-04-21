@@ -1235,7 +1235,6 @@ bicParameter.AQ = str2double(get(handles.edit3,'String'));
 bicParameter.S = str2double(get(handles.edit4,'String'));
 bicParameter.qin = str2double(get(handles.edit8,'String'));
 bicParameter.Y = year(datestr(now,26));
-
 xDoc = xmlread('.\config.xml');
 allSchemeListItems = xDoc.getElementsByTagName('Scheme');% 获取Items节点集合
 Scheme0 = allSchemeListItems.item(0);
@@ -1256,96 +1255,53 @@ bicParameter.repairCost = (xmlRepairCost);
 bicParameter.operatCost = (xmlOperatCost);
 bicParameter.travelTimes = (xmlTravelTimes);
 bicParameter.T = (xmlT);
-
 airQuality = (char(allSchemeListItems.item(1).getAttribute('default')));
 windScale = (char(allSchemeListItems.item(2).getAttribute('default')));
 precipitation = (char(allSchemeListItems.item(3).getAttribute('default')));
-%travelTime = str2double(char(allSchemeListItems.item(4).getAttribute('default')));
 genderRatio = (char(allSchemeListItems.item(6).getAttribute('default')));
 TrafficJam = (char(allSchemeListItems.item(7).getAttribute('default')));
 roadCondition = (char(allSchemeListItems.item(8).getAttribute('default')));
-% bicycleTurnover = (char(allSchemeListItems.item(9).getAttribute('default')));
-%try
+try
 M1=[{'区域人口数'},{'平均年龄'},{'区域平均收入'},{'广告收入'},{'政府补贴额度'},{'公共自行车投放量'},{'计算年份'},{'运营成本增长率'},{'车辆损坏率'},{'车辆维修费用'},{'运营成本'},{'出行次数'},{'温度'},{'空气质量指数'},{'风力等级'},{'降水量'},{'性别比例'},{'交通拥堵情况'},{'道路条件'}];
 N1=[bicParameter.QP,bicParameter.A,bicParameter.I,bicParameter.AQ,bicParameter.S,bicParameter.qin,bicParameter.Y,bicParameter.costIncrease,bicParameter.breakratio,bicParameter.repairCost,bicParameter.operatCost,bicParameter.travelTimes,bicParameter.T,{airQuality},{windScale},{precipitation},{genderRatio},{TrafficJam},{roadCondition}];
 P1=[{'人'},{'岁'},{'千元/月'},{'万月/年'},{'万月/年'},{'辆'},{''},{''},{''},{'元/次/辆'},{'元/年'},{'次/日/人'},{'度'},{''},{''},{'mm'},{''},{''},{''},{'次/日'}];
-%N2=[bicParameter.costIncrease,bicParameter.breakratio,bicParameter.repairCost,bicParameter.operatCost,bicParameter.travelTimes,bicParameter.T];
-%M3=[{'空气质量指数'},{'风力等级'},{'降水量'},{'性别比例'},{'交通拥堵情况'},{'道路条件'},{'自行车周转率'}];
-%N3=[{airQuality},{windScale},{precipitation},{genderRatio},{TrafficJam},{roadCondition},{bicycleTurnover}];
 M2=[{'平均票价'},{'当前票价用户量'},{'当前票价企业日收益'},{'自定义成本平均票价'},{'自定义成本'},{'自定义成本用户量'},{'自定义成本企业日收益'}];
 N2=[{Ticket_Price},{Visitor_Volume},{Daily_Earnings},{Ticket_Price_Custom},{Project_Cost_Custom},{Visitor_Volume_Custom},{Daily_Earnings_Custom}];
 P2=[{'元/次'},{'人次/天'},{'元/天'},{'元/次'},{'元/天'},{'人次/天'},{'元/天'}];
 M3=[{'盈利票价上限'},{'盈利票价下限'},{'盈利用户量上限'},{'盈利用户量下限'},{'最大收益'},{'最大收益票价'},{'最大收益票价用户量'},{'默认成本上限'},{'默认成本下限'},{'自定义成本'},{'自定义成本盈利票价上限'},{'自定义成本盈利票价下限'},{'自定义成本盈利用户量上限'},{'自定义成本盈利用户量下限'},{'自定义成本最大收益'},{'自定义成本最大收益票价'},{'自定义成本最大收益票价用户量'}];
 N3=[{Upper_Limit},{Lower_Limit},{User_Upper_Limit},{User_Lower_Limit},{Maximum_Return},{Maximum_Ticket_Price},{Maximum_Ticket_Price_User},{Costing_Upper},{Costing_Down},{Costing_Custom},{Upper_Limit_Custom},{Lower_Limit_Custom},{User_Upper_Limit_Custom},{User_Lower_Limit_Custom},{Maximum_Return_Custom},{Maximum_Ticket_Price_Custom},{Maximum_Ticket_Price_User_Custom}];
 P3=[{'元/次'},{'元/次'},{'人次/天'},{'人次/天'},{'元/天'},{'元/次'},{'人次/天'},{'人次/天'},{'人次/天'},{'元/天'},{'元/次'},{'元/次'},{'人次/天'},{'人次/天'},{'元/天'},{'元/次'},{'人次/天'}];
-% M6=[{'自定义成本'},{'自定义成本盈利票价上限'},{'自定义成本盈利票价下限'},{'自定义成本盈利用户量上限'},{'自定义成本盈利用户量下限'},{'自定义成本最大收益'},{'自定义成本最大收益票价'},{'自定义成本最大收益票价用户量'}}];
-% N6=[{Costing_Custom},{Upper_Limit_Custom},{Lower_Limit_Custom},{User_Upper_Limit_Custom},{User_Lower_Limit_Custom},{Maximum_Return_Custom},{Maximum_Ticket_Price_Custom},{Maximum_Ticket_Price_User_Custom}];
 [fileName ,putFile]=uiputfile('*.xlsx','报表存储位置');
 namePath=strcat(putFile,fileName);
 if(isempty(namePath))
     errordlg('请输入报表名','错误') ; 
 else
-    %别忘了在文档中注明这个写法的错误
-    Excel=actxserver('Excel.application');
-    Excel.visible=1;
-    Workbook=Excel.Workbooks.Add;
-    Sheets=Excel.Activeworkbook.Sheets;
-    Sheet1=Sheets.Item(1);
-    Sheet1.Activate;
-    Sheet1.Range('A1:K1').MergeCells=1;
-    ActivesheetRange = get(Sheet1,'Range','A1:K1');
-    A=strcat('广州自行车定价模型报表(生成时间：',datestr(now),')');
-    set(ActivesheetRange, 'Value', A);
-    ActivesheetRange = get(Sheet1,'Range','A2');
-    set(ActivesheetRange, 'Value', '模型参数');
-    ActivesheetRange = get(Sheet1,'Range','E2');
-    set(ActivesheetRange, 'Value', '预测结果');
-    ActivesheetRange = get(Sheet1,'Range','I2');
-    set(ActivesheetRange, 'Value', '定价结果');
-    ActivesheetRange = get(Sheet1,'Range','A3');
-    set(ActivesheetRange, 'Value', '参数名称');
-    ActivesheetRange = get(Sheet1,'Range','B3');
-    set(ActivesheetRange, 'Value', '参数数值');
-    ActivesheetRange = get(Sheet1,'Range','C3');
-    set(ActivesheetRange, 'Value', '参数单位');
-    ActivesheetRange = get(Sheet1,'Range','E3');
-    set(ActivesheetRange, 'Value', '结果名称');
-    ActivesheetRange = get(Sheet1,'Range','F3');
-    set(ActivesheetRange, 'Value', '结果数值');
-    ActivesheetRange = get(Sheet1,'Range','G3');
-    set(ActivesheetRange, 'Value', '结果单位');
-    ActivesheetRange = get(Sheet1,'Range','I3');
-    set(ActivesheetRange, 'Value', '结果名称');
-    ActivesheetRange = get(Sheet1,'Range','J3');
-    set(ActivesheetRange, 'Value', '结果数值');
-    ActivesheetRange = get(Sheet1,'Range','K3');
-    set(ActivesheetRange, 'Value', '结果单位');
-    ActivesheetRange = get(Sheet1,'Range','A4:A22');
-    set(ActivesheetRange, 'Value', M1');
-    ActivesheetRange = get(Sheet1,'Range','B4:B22');
-    set(ActivesheetRange, 'Value', N1');
-    ActivesheetRange = get(Sheet1,'Range','C4:C22');
-    set(ActivesheetRange, 'Value', P1');
-    ActivesheetRange = get(Sheet1,'Range','E4:E10');
-    set(ActivesheetRange, 'Value', M2');
-    ActivesheetRange = get(Sheet1,'Range','F4:F10');
-    set(ActivesheetRange, 'Value', N2');
-    ActivesheetRange = get(Sheet1,'Range','G4:G10');
-    set(ActivesheetRange, 'Value', P2');
-    ActivesheetRange = get(Sheet1,'Range','I4:I20');
-    set(ActivesheetRange, 'Value', M3');
-    ActivesheetRange = get(Sheet1,'Range','J4:J20');
-    set(ActivesheetRange, 'Value', N3');
-    ActivesheetRange = get(Sheet1,'Range','K4:K20');
-    set(ActivesheetRange, 'Value', P3');
-    invoke(Workbook, 'SaveAs', namePath);
-    % invoke(Excel, 'Quit');
-    % delete(Excel);
+    xlswrite(namePath,{'模型参数'},1,'A2');
+    xlswrite(namePath,{'预测结果'},1,'E2');
+    xlswrite(namePath,{'定价结果'},1,'I2');
+    xlswrite(namePath,{'参数名称'},1,'A3');
+    xlswrite(namePath,{'参数数值'},1,'B3');
+    xlswrite(namePath,{'参数单位'},1,'C3');
+    xlswrite(namePath,{'结果名称'},1,'E3');
+    xlswrite(namePath,{'结果数值'},1,'F3');
+    xlswrite(namePath,{'结果单位'},1,'G3');
+    xlswrite(namePath,{'结果名称'},1,'I3');
+    xlswrite(namePath,{'结果数值'},1,'J3');
+    xlswrite(namePath,{'结果单位'},1,'K3');
+    xlswrite(namePath,M1',1,'A4:A22');
+    xlswrite(namePath,N1',1,'B4:B22');
+    xlswrite(namePath,P1',1,'C4:C22');
+    xlswrite(namePath,M2',1,'E4:E10');
+    xlswrite(namePath,N2',1,'F4:F10');
+    xlswrite(namePath,P2',1,'G4:G10');
+    xlswrite(namePath,M3',1,'I4:I20');
+    xlswrite(namePath,N3',1,'J4:J20');
+    xlswrite(namePath,P3',1,'K4:K20');
     msgbox('报表生成成功！','');
 end
-% catch
-%     errordlg('报表生成失败','错误') ; 
-% end
+catch
+    errordlg('报表生成失败','错误') ;
+end
 
 
 % --------------------------------------------------------------------
